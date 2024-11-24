@@ -4,6 +4,7 @@ import "./globals.css";
 
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
+import { Toaster } from "@/components/ui/sonner";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -29,6 +30,7 @@ export default function RootLayout({
         className={`${outfit.className} antialiased min-h-screen flex flex-col space-between min-w-screen bg-primary text-primary overflow-x-hidden`}>
         <Header />
         <section className="flex-grow">{children}</section>
+        <Toaster />
         <Footer />
       </body>
     </html>

@@ -24,13 +24,13 @@ const StepsSection = () => {
             </h3>
             <h4 className="mt-8 font-semibold text-center text-2xl">{title}</h4>
             {index === 0 && (
-              <Earth strokeWidth={2.5} size={50} color="#d07b69" />
+              <Earth strokeWidth={2.5} size={50} color="#FF2D55" />
             )}
             {index === 1 && (
-              <ClipboardList strokeWidth={2.5} size={50} color="#d07b69" />
+              <ClipboardList strokeWidth={2.5} size={50} color="#FF2D55" />
             )}
             {index === 2 && (
-              <Check strokeWidth={2.5} size={50} color="#d07b69" />
+              <Check strokeWidth={2.5} size={50} color="#FF2D55" />
             )}
             <p className="text-lg text-center">{description}</p>
           </motion.div>
