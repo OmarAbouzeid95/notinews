@@ -33,20 +33,6 @@ const CategoriesSection = () => {
       className={"max-w-md lg:max-w-2xl mx-auto"}
       ref={ref}
       tabIndex={-1}>
-      {step === 2 && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}>
-          <ArrowLeftCircle
-            size={50}
-            strokeWidth={1}
-            onClick={() => setStep(1)}
-            className="hover:cursor-pointer"
-          />
-        </motion.div>
-      )}
       {step === 1 && (
         <motion.div
           initial={{ opacity: 0 }}
@@ -89,7 +75,21 @@ const CategoriesSection = () => {
         </motion.div>
       )}
       {step === 2 && (
-        <UserInfoForm categories={Array.from(selectedCategories)} />
+        <div className="max-w-md mx-auto">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}>
+            <ArrowLeftCircle
+              size={50}
+              strokeWidth={1}
+              onClick={() => setStep(1)}
+              className="hover:cursor-pointer"
+            />
+          </motion.div>
+          <UserInfoForm categories={Array.from(selectedCategories)} />
+        </div>
       )}
     </motion.div>
   );

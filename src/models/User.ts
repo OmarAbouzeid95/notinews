@@ -4,7 +4,7 @@ export interface User extends mongoose.Document {
   name: string;
   email: string;
   phoneNumber: string;
-  categories: any[];
+  categories: string[];
 }
 
 const userSchema = new mongoose.Schema<User>({
@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema<User>({
     type: String,
   },
   categories: {
-    type: [Object],
+    type: [String],
     default: ["home"],
   },
 });

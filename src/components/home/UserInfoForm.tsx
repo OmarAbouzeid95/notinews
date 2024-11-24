@@ -7,12 +7,17 @@ import { nameRegex, emailRegex, phoneNumberRegex } from "@/config/forms";
 import { Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
+import { createUser } from "@/lib/userUtils";
 import clsx from "clsx";
 
 interface UserInfoFormProps {
   name: string;
   email: string;
-  phoneNumber?: string;
+  phoneNumber?: string | undefined;
+}
+
+export interface UserFormData extends UserInfoFormProps {
+  categories: string[];
 }
 
 const UserInfoForm: React.FC<{ categories: string[] }> = ({ categories }) => {
@@ -25,15 +30,31 @@ const UserInfoForm: React.FC<{ categories: string[] }> = ({ categories }) => {
   const requiredField = "This field is required";
 
   const onSubmit: SubmitHandler<UserInfoFormProps> = (data) => {
-    console.log({ ...data, categories });
-    toast(<p>You&apos;re In! 🎉</p>, {
-      description:
-        "Thanks for joining our newsletter! Get ready to enjoy tailored updates, tips, and insights delivered straight to your inbox. Stay tuned!",
-      action: {
-        label: "test",
-        onClick: () => "",
-      },
-    });
+    setLoading(true);
+    createUser({ ...data, categories })
+      .then((result) => {
+        if (result.status === "success") {
+          toast.success(<p>You&apos;re In! 🎉</p>, {
+            description:
+              "Thanks for joining our newsletter! Get ready to enjoy tailored updates, tips, and insights delivered straight to your inbox. Stay tuned!",
+            action: {
+              label: "test",
+              onClick: () => "",
+            },
+          });
+        }
+      })
+      .catch((error) => {
+        toast(<p>You&apos;re In! 🎉</p>, {
+          description:
+            "Thanks for joining our newsletter! Get ready to enjoy tailored updates, tips, and insights delivered straight to your inbox. Stay tuned!",
+          action: {
+            label: "test",
+            onClick: () => "",
+          },
+        });
+      })
+      .finally(() => setLoading(false));
   };
   return (
     <motion.div
