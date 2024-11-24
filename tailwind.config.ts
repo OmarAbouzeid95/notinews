@@ -24,7 +24,7 @@ const config: Config = {
       textColor: {
         primary: "white",
         secondary: "#DADADA",
-        primaryCta: "#d07b69",
+        primaryCta: "#FF2D55",
       },
     },
   },
