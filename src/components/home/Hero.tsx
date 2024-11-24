@@ -34,15 +34,18 @@ const Hero = () => {
           {...generateMotionSpecs({
             transition: { duration: 0.5, delay: 0.5 },
           })}>
-          <Link
-            href={"https://www.notificationapi.com/"}
-            target="_blank"
-            className={clsx(
-              "inline-block px-6 py-4 rounded-full bg-notificationApiGradient",
-              transitionAll
-            )}>
-            Powered by the NotificationAPI
-          </Link>
+          <p className="text-xl">
+            Powered by{" "}
+            <Link
+              href={"https://www.notificationapi.com/"}
+              target="_blank"
+              className={clsx(
+                "text-transparent bg-clip-text bg-gradient-to-r from-[#fe9cae] to-[#FF2D55]",
+                transitionAll
+              )}>
+              NotificationAPI
+            </Link>
+          </p>
         </motion.div>
       </div>
     </section>
