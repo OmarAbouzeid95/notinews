@@ -22,11 +22,24 @@ export const createUser = async (data: UserFormData) => {
       },
       mergeTags: {
         name: newUser.name.split(" ")[0],
-        userProfileLink: `${process.env.FRONTEND_URL}/${newUser._id}`,
+        userProfileLink: `${process.env.FRONTEND_URL}/profiles/${newUser._id}`,
       },
     });
   } catch (error) {
     console.error("Error sending welcome email: ", error);
   }
   return { status: "success" };
+};
+
+export const getUser = async (
+  id: string
+): Promise<{ foundUser: User | null; error: any }> => {
+  try {
+    await dbConnect();
+    const foundUser: User | null = await user.findOne({ _id: id });
+    return { foundUser, error: null };
+  } catch (error) {
+    console.error("Error fetching user: ", error);
+    return { foundUser: null, error };
+  }
 };

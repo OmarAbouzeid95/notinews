@@ -44,7 +44,7 @@ export const categories: Category[] = [
   { name: "General", value: "home", icon: Earth },
   { name: "Arts", value: "arts", icon: Palette },
   { name: "Automobiles", value: "automobiles", icon: CarFront },
-  { name: "Books/review", value: "books/review", icon: Library },
+  { name: "Books", value: "books", icon: Library },
   { name: "Business", value: "business", icon: Building2 },
   { name: "Fashion", value: "fashion", icon: Shirt },
   { name: "Food", value: "food", icon: Cherry },
