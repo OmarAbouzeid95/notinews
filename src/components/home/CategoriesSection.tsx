@@ -14,6 +14,7 @@ const CategoriesSection = () => {
   );
   const ref = useRef<HTMLDivElement>(null);
   const [step, setStep] = useState<number>(1);
+  const [showConfetti, setShowConfetti] = useState<boolean>(true);
 
   const toggleCategory = (category: string) => {
     if (selectedCategories.has(category)) {
@@ -88,7 +89,10 @@ const CategoriesSection = () => {
               className="hover:cursor-pointer"
             />
           </motion.div>
-          <UserInfoForm categories={Array.from(selectedCategories)} />
+          <UserInfoForm
+            categories={Array.from(selectedCategories)}
+            // setStep={setStep}
+          />
         </div>
       )}
     </motion.div>

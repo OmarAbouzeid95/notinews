@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
@@ -7,6 +7,8 @@ import { nameRegex, emailRegex, phoneNumberRegex } from "@/config/forms";
 import { Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
+
 import { createUser } from "@/lib/userUtils";
 import clsx from "clsx";
 
@@ -20,13 +22,17 @@ export interface UserFormData extends UserInfoFormProps {
   categories: string[];
 }
 
-const UserInfoForm: React.FC<{ categories: string[] }> = ({ categories }) => {
+const UserInfoForm: React.FC<{
+  categories: string[];
+  // setStep: React.Dispatch<number>;
+}> = ({ categories }) => {
   const {
     handleSubmit,
     register,
     formState: { errors },
   } = useForm<UserInfoFormProps>();
   const [loading, setLoading] = useState<boolean>(false);
+  const router = useRouter();
   const requiredField = "This field is required";
 
   const onSubmit: SubmitHandler<UserInfoFormProps> = (data) => {
@@ -42,10 +48,11 @@ const UserInfoForm: React.FC<{ categories: string[] }> = ({ categories }) => {
               onClick: () => "",
             },
           });
+          router.push("/signup-success");
         }
       })
       .catch((error) => {
-        toast(<p>You&apos;re In! 🎉</p>, {
+        toast.error(<p>Something went wrong!</p>, {
           description:
             "Thanks for joining our newsletter! Get ready to enjoy tailored updates, tips, and insights delivered straight to your inbox. Stay tuned!",
           action: {

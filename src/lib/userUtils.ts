@@ -21,7 +21,7 @@ export const createUser = async (data: UserFormData) => {
         number: newUser.phoneNumber,
       },
       mergeTags: {
-        name: newUser.name,
+        name: newUser.name.split(" ")[0],
         userProfileLink: `${process.env.FRONTEND_URL}/${newUser._id}`,
       },
     });
