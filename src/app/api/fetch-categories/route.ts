@@ -3,7 +3,13 @@ import categoryModels from "@/models/categories";
 import { CategoryResult } from "@/types/category";
 import { categories } from "@/data/homepage";
 
-export async function POST(request: Request) {
+export async function GET(request: Request) {
+  const authHeader = request.headers.get("authorization");
+  if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+    return new Response("Unauthorized", {
+      status: 401,
+    });
+  }
   try {
     const promises = categories.map((category, index) => {
       return new Promise((resolve, reject) => {

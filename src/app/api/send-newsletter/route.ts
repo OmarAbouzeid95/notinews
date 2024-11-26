@@ -3,7 +3,13 @@ import User from "@/models/User";
 import { sendNotificationEmail } from "@/lib/notificationApiUtils";
 import { getUserDailyNews } from "@/lib/userUtils";
 
-export async function POST(request: Request) {
+export async function GET(request: Request) {
+  const authHeader = request.headers.get("authorization");
+  if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+    return new Response("Unauthorized", {
+      status: 401,
+    });
+  }
   try {
     await dbConnect();
     const users = await User.find();
