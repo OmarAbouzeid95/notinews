@@ -9,7 +9,7 @@ notificationapi.init(
 
 export const sendNotificationEmail = async (data: notificationapiEmail) => {
   await notificationapi.send({
-    notificationId: "welcome_email",
+    notificationId: data.notificationId,
     user: {
       id: data.user.id,
       email: data.user.email,
