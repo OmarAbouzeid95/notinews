@@ -29,9 +29,13 @@ const ProfilePage = async ({ params }: { params: { id: string } }) => {
   return (
     <Section title=" ">
       <div className="max-w-md mx-auto">
-        <h1 className="text-2xl font-semibold mb-12">
+        <h1 className="text-2xl font-semibold mb-3">
           Welcome back, {user.name.split(" ")[0]}
         </h1>
+        <p className="text-secondary mb-8">
+          Take control of what you see! Update your preferences to stay
+          connected with topics and updates that matter most to you.
+        </p>
         <UpdateCategories userCategories={user.categories} />
       </div>
     </Section>

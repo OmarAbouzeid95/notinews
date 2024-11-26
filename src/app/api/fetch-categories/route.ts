@@ -21,9 +21,10 @@ export async function POST(request: Request) {
                 .map((result: any) => ({
                   section: result.section,
                   title: result.title,
+                  abstract: result.abstract,
                   url: result.url,
                   publishedDate: result.published_date,
-                  imageUrl: result.multimedia[1].url,
+                  imageUrl: result.multimedia ? result.multimedia[1].url : "",
                 }));
               await dbConnect();
               await new categoryModels[

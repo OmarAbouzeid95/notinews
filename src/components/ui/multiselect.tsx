@@ -193,7 +193,7 @@ export const MultiSelect = React.forwardRef<
 
     return (
       <div>
-        <h3 className="font-semibold text-sm mb-1 pl-1">Update Preferences</h3>
+        <h3 className="font-semibold text-sm mb-1 pl-1">Update Categories</h3>
         <Popover
           open={isPopoverOpen}
           onOpenChange={setIsPopoverOpen}
@@ -220,7 +220,7 @@ export const MultiSelect = React.forwardRef<
                           key={value}
                           className={cn(
                             multiSelectVariants({ variant }),
-                            "border-gray-500 border"
+                            "border-gray-500 border p-2"
                           )}
                           style={{ animationDuration: `${animation}s` }}
                           onClick={(event) => {
@@ -236,7 +236,7 @@ export const MultiSelect = React.forwardRef<
                     {selectedValues.length > maxCount && (
                       <Badge
                         className={cn(
-                          "bg-transparent text-foreground border-foreground/1 hover:bg-transparent",
+                          "bg-transparent text-foreground border-foreground/1 hover:bg-transparent p-2",
                           multiSelectVariants({ variant })
                         )}
                         style={{ animationDuration: `${animation}s` }}
