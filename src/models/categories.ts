@@ -18,10 +18,9 @@ categories.forEach((category) => {
     },
     results: [Object],
   });
-  categoryModels[category.value] = mongoose.model<Category>(
-    `${category.name}`,
-    schema
-  );
+  categoryModels[category.value] =
+    mongoose.models[category.value] ||
+    mongoose.model<Category>(`${category.value}`, schema);
 });
 
 export default categoryModels;

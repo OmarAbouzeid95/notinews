@@ -1,9 +1,16 @@
 "use client";
+import { useState, useEffect } from "react";
 import Confetti from "react-confetti";
 import Section from "@/components/common/Section";
 
 const SignupSuccessPage = () => {
-  const [width, height] = [window.innerWidth, window.innerHeight];
+  const [width, setWidth] = useState<number>(0);
+  const [height, setHeight] = useState<number>(0);
+
+  useEffect(() => {
+    setWidth(window.innerWidth);
+    setHeight(window.innerHeight);
+  }, []);
   return (
     <>
       <Confetti width={width} height={height} />
