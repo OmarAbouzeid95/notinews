@@ -2,6 +2,7 @@ import Section from "@/components/common/Section";
 import Link from "next/link";
 import { getUser } from "@/lib/userUtils";
 import { redirect } from "next/navigation";
+import UpdateCategories from "@/components/profile/UpdateCategories";
 
 const ProfilePage = async ({ params }: { params: { id: string } }) => {
   const { id }: { id: string } = params;
@@ -27,10 +28,11 @@ const ProfilePage = async ({ params }: { params: { id: string } }) => {
 
   return (
     <Section title=" ">
-      <div>
+      <div className="max-w-md mx-auto">
         <h1 className="text-2xl font-semibold mb-12">
           Welcome back, {user.name.split(" ")[0]}
         </h1>
+        <UpdateCategories userCategories={user.categories} />
       </div>
     </Section>
   );

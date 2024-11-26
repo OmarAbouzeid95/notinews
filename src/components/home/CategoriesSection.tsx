@@ -10,7 +10,7 @@ import { categories } from "@/data/homepage";
 
 const CategoriesSection = () => {
   const [selectedCategories, setSelectedCategories] = useState<Set<string>>(
-    new Set(["home"])
+    new Set(["world"])
   );
   const ref = useRef<HTMLDivElement>(null);
   const [step, setStep] = useState<number>(1);

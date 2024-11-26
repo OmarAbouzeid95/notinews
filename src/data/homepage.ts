@@ -41,7 +41,7 @@ export const serviceSteps: StepCard[] = [
 ];
 
 export const categories: Category[] = [
-  { name: "General", value: "home", icon: Earth },
+  { name: "General", value: "world", icon: Globe },
   { name: "Arts", value: "arts", icon: Palette },
   { name: "Automobiles", value: "automobiles", icon: CarFront },
   { name: "Books", value: "books", icon: Library },
@@ -59,5 +59,4 @@ export const categories: Category[] = [
   { name: "Technology", value: "technology", icon: Cpu },
   { name: "Theater", value: "theater", icon: Theater },
   { name: "Travel", value: "travel", icon: Plane },
-  { name: "World", value: "world", icon: Globe },
 ];

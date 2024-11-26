@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema<User>({
   },
   categories: {
     type: [String],
-    default: ["home"],
+    default: ["world"],
   },
 });
 

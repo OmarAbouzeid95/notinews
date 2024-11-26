@@ -43,3 +43,11 @@ export const getUser = async (
     return { foundUser: null, error };
   }
 };
+
+export const updateUser = async (
+  id: string,
+  data: { [key: string]: string | string[] }
+) => {
+  await dbConnect();
+  await user.updateOne({ _id: id }, { ...data });
+};

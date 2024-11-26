@@ -40,13 +40,9 @@ const UserInfoForm: React.FC<{
     createUser({ ...data, categories })
       .then((result) => {
         if (result.status === "success") {
-          toast.success(<p>You&apos;re In! 🎉</p>, {
+          toast.success("Your'e In! 🎉", {
             description:
               "Thanks for joining our newsletter! Get ready to enjoy tailored updates, tips, and insights delivered straight to your inbox. Stay tuned!",
-            action: {
-              label: "test",
-              onClick: () => "",
-            },
           });
           router.push("/signup-success");
         }
@@ -54,11 +50,7 @@ const UserInfoForm: React.FC<{
       .catch((error) => {
         toast.error(<p>Something went wrong!</p>, {
           description:
-            "Thanks for joining our newsletter! Get ready to enjoy tailored updates, tips, and insights delivered straight to your inbox. Stay tuned!",
-          action: {
-            label: "test",
-            onClick: () => "",
-          },
+            "Oops, something went wrong from our side. Please try again",
         });
       })
       .finally(() => setLoading(false));
