@@ -14,7 +14,6 @@ const CategoriesSection = () => {
   );
   const ref = useRef<HTMLDivElement>(null);
   const [step, setStep] = useState<number>(1);
-  const [showConfetti, setShowConfetti] = useState<boolean>(true);
 
   const toggleCategory = (category: string) => {
     if (selectedCategories.has(category)) {

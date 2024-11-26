@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { CategoryResult } from "@/types/category";
 import { ArrowUpRight } from "lucide-react";
-import { categories } from "@/data/homepage";
 
 const NewsArticle: React.FC<{ article: CategoryResult }> = ({ article }) => {
   return (

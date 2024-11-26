@@ -1,7 +1,3 @@
-import Link from "next/link";
-// import { navLinks } from "@/config/navigation";
-import { transitionAll } from "@/config/styles";
-
 const Footer: React.FC<unknown> = () => {
   return (
     <footer className="bg-extraDark py-10">

@@ -36,7 +36,7 @@ export const createUser = async (data: UserFormData) => {
 
 export const getUser = async (
   id: string
-): Promise<{ foundUser: User | null; error: any }> => {
+): Promise<{ foundUser: User | null; error: unknown }> => {
   try {
     await dbConnect();
     const foundUser: User | null = await user.findOne({ _id: id });
@@ -58,7 +58,7 @@ export const updateUser = async (
 export const getUserDailyNews = async (
   id: string,
   date: string
-): Promise<{ news: CategoryResult[] | null; error: any }> => {
+): Promise<{ news: CategoryResult[] | null; error: unknown }> => {
   try {
     await dbConnect();
     const foundUser: User | null = await user.findOne({ _id: id });

@@ -47,7 +47,7 @@ const UserInfoForm: React.FC<{
           router.push("/signup-success");
         }
       })
-      .catch((error) => {
+      .catch(() => {
         toast.error(<p>Something went wrong!</p>, {
           description:
             "Oops, something went wrong from our side. Please try again",

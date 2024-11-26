@@ -1,7 +1,6 @@
 import { StepCard, Category } from "@/types/homepage";
 
 import {
-  Earth,
   Palette,
   CarFront,
   Library,

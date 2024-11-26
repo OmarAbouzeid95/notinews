@@ -17,11 +17,11 @@ const SignupSuccessPage = () => {
       <Section title="" className="mt-16">
         <div className="max-w-md mx-auto flex flex-col gap-2">
           <h1 className="mb-4 text-center font-semibold text-3xl">
-            You're all set!
+            You&apos;re all set!
           </h1>
           <p className="text-center">
-            Welcome aboard! You've successfully joined the community. Keep an
-            eye on your inbox for personalized updates tailored just for you.
+            Welcome aboard! You&apos;ve successfully joined the community. Keep
+            an eye on your inbox for personalized updates tailored just for you.
           </p>
           <p className="text-center">
             Feel free to update your preferences anytime to ensure you only get
