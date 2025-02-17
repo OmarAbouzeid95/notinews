@@ -1,4 +1,5 @@
 import { Font, Head, Html } from "@react-email/components";
+import Image from "next/image";
 import { CategoryResult } from "@/types/category";
 
 type NewsletterArgs = {
@@ -55,7 +56,7 @@ export default function NewsletterTemplate({
       margin: "0.75rem 0",
     },
     pill: {
-      position: "absolute" as "absolute",
+      position: "absolute",
       zIndex: 999,
       bottom: "5px",
       right: "5px",
@@ -101,7 +102,7 @@ export default function NewsletterTemplate({
               style={{ ...styles.articleWrapper }}
               target="_blank">
               <div style={{ ...styles.articleImageWrapper }}>
-                <img
+                <Image
                   src={article.imageUrl}
                   alt={article.title}
                   style={{
