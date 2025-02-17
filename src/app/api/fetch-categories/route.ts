@@ -2,6 +2,7 @@ import dbConnect from "@/lib/dbConnect";
 import categoryModels from "@/models/categories";
 import { CategoryResult } from "@/types/category";
 import { categories } from "@/data/homepage";
+import { lightFormat, subDays } from "date-fns";
 
 type ArticleResponse = CategoryResult & {
   published_date: string;
@@ -16,6 +17,8 @@ export async function GET(request: Request) {
     });
   }
   try {
+    const today = lightFormat(new Date(), "yyyy-MM-dd");
+    const prevWeek = lightFormat(subDays(today, 7), "yyyy-MM-dd");
     const promises = categories.map((category, index) => {
       return new Promise((resolve) => {
         setTimeout(() => {
@@ -24,8 +27,6 @@ export async function GET(request: Request) {
           )
             .then(async (result) => {
               const res = await result.json();
-              const date = new Date();
-              const today = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
               const results: CategoryResult[] = res.results
                 .filter(
                   (res: ArticleResponse) => res.section === category.value
@@ -40,13 +41,17 @@ export async function GET(request: Request) {
                   imageUrl: result.multimedia ? result.multimedia[1].url : "",
                 }));
               await dbConnect();
+              // adding new doc
               await new categoryModels[
                 category.value as keyof typeof categoryModels
               ]({
                 date: today,
                 results,
               }).save();
-              console.log("successfully fetched :", category.name);
+              // deleting last week's doc
+              await categoryModels[
+                category.value as keyof typeof categoryModels
+              ].deleteOne({ date: prevWeek });
               resolve(results);
             })
             .catch((error) => {

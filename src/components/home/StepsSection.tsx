@@ -11,7 +11,7 @@ const StepsSection = () => {
         return (
           <motion.div
             key={index}
-            className="relative max-w-md h-[370px] flex flex-col justify-center items-center gap-5 md:max-w-sm lg:max-w-[320px] rounded-lg bg-primary py-6 px-4"
+            className="relative max-w-md h-[370px] border border-gray-500 flex flex-col justify-center items-center gap-5 md:max-w-sm lg:max-w-[320px] rounded-lg bg-primary py-6 px-4"
             initial={{ y: 40, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{
